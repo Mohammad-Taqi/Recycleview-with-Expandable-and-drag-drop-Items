@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><!-- item_list.xml -->
+<!-- item_list.xml -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.expandablerecycleviewwithswaping.models.ItemModel" />
+
+        <variable
+            name="isExpanded"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Add your desired layout for the item here -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{viewModel.title}"
+            android:gravity="center_horizontal"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_margin="2dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Abc" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expandedRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="@{isExpanded ? View.VISIBLE : View.GONE}"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    </LinearLayout>
+</layout>
